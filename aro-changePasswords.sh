@@ -46,6 +46,6 @@ do
   echo Updated password to $NEW_INSTRUCTORPW for: $accounts@$GPTE_DOMAIN.
 done
 
-echo -e "\nDone updating paswords."
+echo -e "\nDone updating passwords."
 
 exit 0
