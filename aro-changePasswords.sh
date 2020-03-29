@@ -31,7 +31,7 @@ test "$(az account get-access-token --query "tenant" --output tsv)" != $GPTE_TEN
 echo -e "\nOK, Updating student passwords now."
 while [ $STUDENT_USERACCOUNTS -ge 0 ]
 do
-  #az ad user update --id arouser$STUDENT_USERACCOUNTS@$GPTE_DOMAIN --force-change-password-next-login false --password $NEW_STUDENTPW
+  az ad user update --id arouser$STUDENT_USERACCOUNTS@$GPTE_DOMAIN --force-change-password-next-login false --password $NEW_STUDENTPW
   echo Updated password to $NEW_STUDENTPW for: arouser$STUDENT_USERACCOUNTS@$GPTE_DOMAIN.
   ((STUDENT_USERACCOUNTS--))
   if [ $STUDENT_USERACCOUNTS -eq 0 ]; then
@@ -42,7 +42,7 @@ done
 echo -e "\nOK, Updating instructor passwords now."
 for accounts in $INSTRUCTOR_ACCOUNTS
 do
-  #az ad user update --id $accounts@$GPTE_DOMAIN --force-change-password-next-login false --password $NEW_INSTRUCTORPW
+  az ad user update --id $accounts@$GPTE_DOMAIN --force-change-password-next-login false --password $NEW_INSTRUCTORPW
   echo Updated password to $NEW_INSTRUCTORPW for: $accounts@$GPTE_DOMAIN.
 done
 
